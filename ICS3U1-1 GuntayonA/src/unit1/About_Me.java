@@ -18,6 +18,7 @@ public class About_Me {
 		System.out.println("School: Lawrence Park CI");
 		System.out.println("\"Go Pathers\"");
 		System.out.println("____________________________________");
+		//Start of The Time Table
 		System.out.printf("%1s %24s %12s", "","Schedule Sept 23", "| \n");
 		System.out.println("____________________________________|");
 		System.out.printf("%2s %1s %24s", "Day 1:", "Monday", "Time        |\n");

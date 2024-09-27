@@ -1,13 +1,13 @@
 package unit1;
 /**
- * Description: This program prints my first and last name and an image <br>
- * Date: Sept, 19, 2024 <br>
+ * Description: This program prints name art and an image <br>
+ * Date: Sept, 27, 2024 <br>
  * 
  * @author Alexander Guntayon
  */
 public class Name_Art {
 	/**
-	 * Prints first and last name and an image sdfsfsdfsfs
+	 * Prints first and last name and an image
 	 * @param args
 	 */
 	

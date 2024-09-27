@@ -1,12 +1,16 @@
 package unit1;
 /**
- * Description: This program prints my name <br>
- * 
+ * Description: This program prints my first and last name and an image <br>
  * Date: Sept, 19, 2024 <br>
+ * 
  * @author Alexander Guntayon
  */
 public class Name_Art {
-
+	/**
+	 * Prints first and last name and an image sdfsfsdfsfs
+	 * @param args
+	 */
+	
 	public static void main(String[] args) {
 	//First Name
 	System.out.println("    _    _                          _           ");
@@ -21,6 +25,7 @@ public class Name_Art {
 	System.out.println("\\__> \\__/ | \\|  |  /~~\\  |  \\__/ | \\| ");
 	System.out.println("                                      ");
 	System.out.println("\n\n");
+	//Prints Image
 	System.out.println("*************************.                                                .*************************\r\n"
 			+ "*************************.                                                .*************************\r\n"
 			+ "*************************.                                                .*************************\r\n"
@@ -71,7 +76,7 @@ public class Name_Art {
 			+ "*************************.                                                .*************************\r\n"
 			+ "*************************.                                                .*************************\r\n"
 			+ "*************************.                                                .*************************");
-
+	
 	}
 		
 

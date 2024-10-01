@@ -1,9 +1,9 @@
 package unit1;
 
 /**
-*Description:
-*Date:
-*@author 
+*Description: Worksheet with variables
+*Date: Oct 1 2024
+*@author Alexander Guntayon
 */
 	public class Variables {
 		/**
@@ -20,7 +20,7 @@ package unit1;
 
 
 //Key Question: what if the value I want to use needs to change?
-				//You need to use a variable
+				//You need to use a variable and use the + operator
 
 /*
 Variables
@@ -70,7 +70,7 @@ Once your variable has been given a value, it can then be *referenced* - that is
 				int myAge = 16;
 			System.out.println("My age is " + myAge);
 				myAge = myAge + 10;
-			System.out.println("My age i now " + myAge);
+			System.out.println("My age is now " + myAge);
 
 //Print it out in a sentence (Hint: remember how we combined text and numbers in a print statement)
 

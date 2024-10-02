@@ -77,7 +77,7 @@ public class MathOperators {
          to check your answer.
       */
       System.out.println(10 % 4);
-      //I think % means: 
+      //I think % means: It devides a number with a number and gets the remainder
       
    }
 }

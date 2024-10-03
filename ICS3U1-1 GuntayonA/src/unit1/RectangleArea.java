@@ -1,6 +1,6 @@
 package unit1;
 /**
- * Description: String Vraiables Worksheet <br>
+ * Description: Calculates Rectangle Volume <br>
  * 
  * Date: Oct 2, 2024 <br>
  * @author Alexander Guntayon

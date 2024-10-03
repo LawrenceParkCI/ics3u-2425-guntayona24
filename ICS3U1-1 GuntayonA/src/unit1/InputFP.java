@@ -1,6 +1,6 @@
 package unit1;
 /**
- * Description: String Vraiables Worksheet <br>
+ * Description: Prints floats of user input <br>
  * 
  * Date: Oct 3, 2024 <br>
  * @author Alexander Guntayon

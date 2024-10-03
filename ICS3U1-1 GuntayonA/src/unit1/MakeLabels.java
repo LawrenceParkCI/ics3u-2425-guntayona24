@@ -1,13 +1,13 @@
 package unit1;
-
-import java.util.Scanner;
-
 /**
  * Description: String Vraiables Worksheet <br>
  * 
- * Date: Oct, 2, 2024 <br>
+ * Date: Oct 2, 2024 <br>
  * @author Alexander Guntayon
  */
+
+import java.util.Scanner;
+
 
 
 public class MakeLabels {

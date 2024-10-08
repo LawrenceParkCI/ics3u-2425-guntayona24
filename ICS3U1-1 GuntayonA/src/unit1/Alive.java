@@ -2,7 +2,7 @@ package unit1;
 /**
  * Description: Gets input from user to calculate days alive and hours slept <br>
  * 
- * Date: Oct 7, 2024 <br>
+ * Date: Oct 8, 2024 <br>
  * @author Alexander Guntayon
  */
 

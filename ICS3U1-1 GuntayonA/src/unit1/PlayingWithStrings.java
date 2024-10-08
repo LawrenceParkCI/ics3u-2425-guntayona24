@@ -66,17 +66,20 @@ public class PlayingWithStrings {
 		//String name2 = name1.substring(0,6) + name1.substring(15);
 		//System.out.println(name2);
 		
-		String msg = "I am enjoying this class.";
+		//String msg = "I am enjoying this class.";
 		
-		String msg1 = msg.toUpperCase();
-		String msg2 = msg.toLowerCase();
-		char letter = msg.charAt(6);
+		//String msg1 = msg.toUpperCase();
+		//String msg2 = msg.toLowerCase();
+		//char letter = msg.charAt(6);
 		
-		System.out.println(msg);
-		System.out.println(msg1);
-		System.out.println(msg2);
-		System.out.println("Character at index 6 = " + letter);
-		System.out.println("msg has " + msg.length() + " characters.");
+		//System.out.println(msg);
+		//System.out.println(msg1);
+		//System.out.println(msg2);
+		//System.out.println("Character at index 6 = " + letter);
+		//System.out.println("msg has " + msg.length() + " characters.");
+		
+		String name = "HelloHi";
+		System.out.println(name.charAt(2));
 		
 
 	}

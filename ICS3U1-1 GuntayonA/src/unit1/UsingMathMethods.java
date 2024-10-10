@@ -4,14 +4,14 @@ import java.util.Scanner;
 
 /**
  * Description: Using Math Methods Worksheet
- * Date:
- * @author 
+ * Date: Oct 10 2024
+ * @author Alexander Guntayon
  */
 public class UsingMathMethods {
-/**
-* 
-* @param args
-*/
+	/**
+	 * 
+	 *@param args
+	 */
 	public static void main(String[] args) {
 		
 		Scanner sc = new Scanner(System.in);
@@ -102,7 +102,7 @@ public class UsingMathMethods {
 	  
 	  //Does your program give a different answer if 0.3333333 is input instead of 0.33 for the power?
 	  
-	  //
+	  //yes, it gives 1.4142135133601887
 	  
 	  
 	 }

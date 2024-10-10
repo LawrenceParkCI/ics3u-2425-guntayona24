@@ -11,17 +11,17 @@ import java.util.Scanner;
 public class Carpet {
 
 	public static void main(String[] args) {
+		
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Type the width in meters");
-		String width = sc.nextLine();
+		int width = sc.nextInt();
 		System.out.println("Type the Length in meters");
-		String length = sc.nextLine();
+		int length = sc.nextInt();
 		System.out.println("Type the price for square meter");
-		String price = sc.nextLine();
+		int price = sc.nextInt();
 	
 		
-		Double carpetCost = (double)(width * length * price);
-
+		System.out.println("The carpet costs $" + (width*length*price));
 	}
 
 }

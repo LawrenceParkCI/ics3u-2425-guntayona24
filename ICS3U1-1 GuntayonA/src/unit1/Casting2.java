@@ -40,12 +40,9 @@ public class Casting2 {
     
     //create a new character myCharCap, and transform myChar into a capital 'A' and print it
     	
-    char myCharCap = 'A';
+    char myCharCap;
     
-    myChar = (char) myCharCap;
-    
-    System.out.println(myChar);
-    System.out.println(((char) myChar));
+    System.out.println((char) (97 - 32));
     
 
   }

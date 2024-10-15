@@ -92,11 +92,11 @@ public class Casting {
 	    //code
 	    
 	    double theNum = in.nextDouble();
-	    short theFloat = 0;
+	    short theShort = 0;
 	    
 	    
 	    System.out.print("Rounding down to the nearest tenth, it is: ");
-	    theFloat = (short) theNum;
+	    theShort = (short) theNum;
 	    System.out.println(Math.rint(theNum));
 	  }
 }

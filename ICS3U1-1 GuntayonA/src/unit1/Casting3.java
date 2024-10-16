@@ -73,10 +73,11 @@ public class Casting3 {
     //Similarly, test out the code and write down what instructions
   
     
-    String strNum2 = "10";
+    String strNum2 = "10.0";
     double myNum2 = Double.parseDouble(strNum);
 
     //When do you think it might be necessary to change a string value into an integer value/double value?
     
+    //Converting numbers in string to add to other ints/double
   }
 }

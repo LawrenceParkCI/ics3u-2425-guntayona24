@@ -62,28 +62,28 @@ public class Commenting {
     num1 = num1 / 3 * 2; //num1 is 26
     num1 = (int)(num2 * 3 - (2 + 5) * 8); //num1 is 52
     num2 = ((int)num2) - num1;//num2 = -16
-    System.out.println(;stringNum = num1 + " " + num2);//stringNum = 52 -16
+    stringNum = num1 + " " + num2;//stringNum = 52 -16
 
     /*
     * Variables Name    |   Value
     * ---------------------------------
-    * num1              |
-    * num2              |
-    * stringNum         |
+    * num1              |52
+    * num2              |-16
+    * stringNum         |52 - 16
     */
 
-    num2 /= 2.5;
-    num1 /= 2;
-    stringNum = stringNum + "; ";
-    stringNum = stringNum + num1 + " " + num2;
+    num2 /= 2.5;//num2 is 6.4
+    num1 /= 2;//num1 is 26
+    stringNum = stringNum + "; "; //stringNum = 26 6.4 ; 
+    stringNum = stringNum + num1 + " " + num2;//stringNum = 26 6.4 26 6.4
 
 
     /*
     * Variables Name    |   Value
     * ---------------------------------
-    * num1              |
-    * num2              |
-    * stringNum         |
+    * num1              |26
+    * num2              |6.4
+    * stringNum         |26 6.4 26 6.4
     */
   }
 }

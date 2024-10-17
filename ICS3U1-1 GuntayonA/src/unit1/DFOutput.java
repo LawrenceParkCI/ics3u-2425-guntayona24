@@ -20,7 +20,7 @@ public class DFOutput {
 		
 		final double TAX_RATE = 0.13;
 		DecimalFormat money = new DecimalFormat("$#,###,##0.00");
-		DecimalFormat percent = new DecimalFormat("#.0#%");
+		DecimalFormat percent = new DecimalFormat("#.#%");
 
 		double cost;
 		System.out.print("Please enter the cost of an item then press <Enter>: $");

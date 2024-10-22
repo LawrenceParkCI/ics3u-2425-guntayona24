@@ -1,5 +1,7 @@
 package unit1;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.Scanner;
 
 /**
@@ -14,6 +16,9 @@ public class GroceryShopping {
 		
 		
 		final double tax = 0.13;
+		//NumberFormat money = NumberFormat.getCurrencyInstance();
+		DecimalFormat money = new DecimalFormat("##0.00");		
+		
 		
 		//Title
 		System.out.println("|| $$$ \\\\\\ ========== \"Alexander's Grocery\" ========== /// $$$ ||");
@@ -47,33 +52,56 @@ public class GroceryShopping {
 		
 		System.out.print("How many will you buy?: ");
 		int amount2 = sc.nextInt();
-
-		//Type Casting Cost and Amount
-		//double costDouble = Double.parseDouble(cost);
-		//int amountInt = Integer.parseInt(amount);
+		
+		//Coupon (extra feature)
+		System.out.println();
+		System.out.print("What is your coupon in %? (0% if you dont): ");
+		double coupon = sc.nextDouble();
+		double couponConvert = coupon/100;
+		
 		
 		//calculates first item
 		var total_amount = (amount * cost);
-		var total_amount_plus_tax = (total_amount + (total_amount * tax));
 		
 		
 		//calculates Second item
 		var total_amount2 = (amount2 * cost2);
-		var total_amount_plus_tax2 = (total_amount2 + (total_amount2 * tax));
+		
+		//calculates tax
+		var total_tax = (tax * (total_amount + total_amount2));
 		
 		//subtotal of both items (no tax)
 		var subtotal = (total_amount + total_amount2);
 		
-		//Coupon (extra feature)
+		//total of both items plus their tax
+		double total = total_tax + subtotal;
+		System.out.println(total);
+		
+		//calculates money saved with coupon
+		double money_saved = couponConvert * total;
+		
+		//calculates total with coupon
+		double new_total = total - (money_saved);
+
+		
+
 		
 		System.out.printf("%60s", "This is your printed receipt \n");
 		System.out.printf("%70s", "Item      |  Price  | Quant. | Total Price \r \n");
 		System.out.printf("%68s", "------------------------------------------ \n");
-		System.out.printf("%30s    | %6s  | %8s %13s \n", item, cost, amount, total_amount);
-		System.out.printf("%30s %9s %8s %13s \n", item2, cost2, amount2, total_amount2);
+		System.out.printf("%31s   | %6s  | %4s   | %7s \n", item, money.format(cost), amount, money.format(total_amount));
+		System.out.printf("%31s   | %6s  | %4s   | %7s \n", item2, money.format(cost2), amount2, money.format(total_amount2));
 		System.out.printf("%68s", "------------------------------------------ \n");
-		System.out.printf("%50s %-1s \n", "Subtotal: $", subtotal);
-
+		System.out.printf("%55s %10s \n", "Subtotal: $", money.format(subtotal));
+		System.out.printf("%55s %10s \n", "Tax: $", money.format(total_tax));
+		System.out.printf("%55s %10s \n", "Total: $", money.format(total));
+		System.out.printf("%55s %10s \n", "Coupon: %", (coupon));
+		System.out.printf("%55s %1s %1s \n", "Saved: $", "-", money.format(money_saved));
+		System.out.printf("%55s %10s \n", "New Total: $", money.format(new_total));
+		
+		//Rounds up the new_total
+		long new_total_rounded = Math.round(new_total);
+		System.out.println("This purchase was around $" + new_total_rounded);
 	}
 
 	private static void close() {

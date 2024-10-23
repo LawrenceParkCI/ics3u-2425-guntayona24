@@ -3,14 +3,22 @@ package unit1;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Scanner;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
-* Description: Code asks user
-* Date: Oct 17 2024
+* Description: Code prompts user for the cost and amount of 2 items, and puts them onto a receipt
+* Date: Oct 23 2024
+* 
 * @author Alexander Guntayon
-*/
+**/
 public class GroceryShopping {
 
+
+	/**
+	* This is the entry point to the program.
+	* @param args unused
+	*/
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		
@@ -18,7 +26,8 @@ public class GroceryShopping {
 		final double tax = 0.13;
 		//NumberFormat money = NumberFormat.getCurrencyInstance();
 		DecimalFormat money = new DecimalFormat("##0.00");		
-		
+		DecimalFormat couponPercentage = new DecimalFormat("##0.##");	
+		DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
 		
 		//Title
 		System.out.println("|| $$$ \\\\\\ ========== \"Alexander's Grocery\" ========== /// $$$ ||");
@@ -32,7 +41,7 @@ public class GroceryShopping {
 		
 		System.out.print("How much does it cost?: ");
 		double cost = sc.nextDouble();
-		
+		cost = Math.round(cost * 20) / 20.0; //This line rounds the cost to the nearest 0.05 cents
 		
 		System.out.print("How many will you buy?: ");
 		int amount = sc.nextInt();
@@ -48,7 +57,7 @@ public class GroceryShopping {
 		
 		System.out.print("How much does it cost?: ");
 		double cost2 = sc.nextDouble();
-		
+		cost2 = Math.round(cost * 20) / 20.0; //This line rounds the cost2 to the nearest 0.05 cents
 		
 		System.out.print("How many will you buy?: ");
 		int amount2 = sc.nextInt();
@@ -79,34 +88,38 @@ public class GroceryShopping {
 		
 		//calculates money saved with coupon
 		double money_saved = couponConvert * total;
+		money_saved = Math.round(money_saved * 20) / 20.0; //This line rounds the money that the coupon saved to the nearest 0.05 cents
 		
 		//calculates total with coupon
 		double new_total = total - (money_saved);
 
 		
 
-		
-		System.out.printf("%60s", "This is your printed receipt \n");
+		//Prints out a formatted receipt
+		System.out.printf("%70s", "This is your printed receipt \n \n \n \n \n");
+   		System.out.printf("%58s","Alexander's Grocery \n \n");
+    		System.out.printf("%43s \n", dateTimeFormatter.format(LocalDateTime.now()));
 		System.out.printf("%70s", "Item      |  Price  | Quant. | Total Price \r \n");
-		System.out.printf("%68s", "------------------------------------------ \n");
+		System.out.printf("%69s", "-------------------------------------------- \n");
 		System.out.printf("%31s   | %6s  | %4s   | %7s \n", item, money.format(cost), amount, money.format(total_amount));
 		System.out.printf("%31s   | %6s  | %4s   | %7s \n", item2, money.format(cost2), amount2, money.format(total_amount2));
-		System.out.printf("%68s", "------------------------------------------ \n");
+		System.out.printf("%69s", "-------------------------------------------- \n");
 		System.out.printf("%55s %10s \n", "Subtotal: $", money.format(subtotal));
 		System.out.printf("%55s %10s \n", "Tax: $", money.format(total_tax));
 		System.out.printf("%55s %10s \n", "Total: $", money.format(total));
-		System.out.printf("%55s %10s \n", "Coupon: %", (coupon));
-		System.out.printf("%55s %1s %1s \n", "Saved: $", "-", money.format(money_saved));
-		System.out.printf("%55s %10s \n", "New Total: $", money.format(new_total));
+		System.out.printf("%55s %10s \n", "Coupon: %", couponPercentage.format(coupon));
+		System.out.printf("%55s %5s %1s \n", "Discounted: $", "-", money.format(money_saved));
+		System.out.printf("%55s %10s \n \n", "New Total: $", money.format(new_total)); //If the user has a coupon, it's discounted
 		
 		//Rounds up the new_total
 		long new_total_rounded = Math.round(new_total);
-		System.out.println("This purchase was around $" + new_total_rounded);
+		System.out.printf("%50s \n", "This purchase was around $" + new_total_rounded);
+    		System.out.printf("%69s", "Thank you for shopping at Alexander's Grocery!"); //Gratitude message
 	}
 
 	private static void close() {
 		// TODO Auto-generated method stub
-		
+			
 	}
 
 }

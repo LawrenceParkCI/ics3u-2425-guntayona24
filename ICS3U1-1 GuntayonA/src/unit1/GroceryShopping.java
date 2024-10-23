@@ -23,13 +23,14 @@ public class GroceryShopping {
 		Scanner sc = new Scanner(System.in);
 		
 		
-		final double tax = 0.13;
+		final double tax = 0.13; //The standard tax
+		
 		//NumberFormat money = NumberFormat.getCurrencyInstance();
 		DecimalFormat money = new DecimalFormat("##0.00");		
 		DecimalFormat couponPercentage = new DecimalFormat("##0.##");	
 		DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
 		
-		//Title
+
 		System.out.println("|| $$$ \\\\\\ ========== \"Alexander's Grocery\" ========== /// $$$ ||");
 		System.out.println();
 		
@@ -66,32 +67,32 @@ public class GroceryShopping {
 		System.out.println();
 		System.out.print("What is your coupon in %? (0% if you dont): ");
 		double coupon = sc.nextDouble();
-		double couponConvert = coupon/100;
+		double couponConvert = coupon/100; //Converts the coupon whole numbered into a usable decimal number
 		
 		
-		//calculates first item
-		var total_amount = (amount * cost);
+		//calculates first items total 
+		var totalAmount = (amount * cost);
 		
 		
-		//calculates Second item
-		var total_amount2 = (amount2 * cost2);
+		//calculates Second items total
+		var totalAmount2 = (amount2 * cost2);
 		
 		//calculates tax
-		var total_tax = (tax * (total_amount + total_amount2));
+		var totalTax = (tax * (totalAmount + totalAmount2));
 		
 		//subtotal of both items (no tax)
-		var subtotal = (total_amount + total_amount2);
+		var subtotal = (totalAmount + totalAmount2);
 		
 		//total of both items plus their tax
-		double total = total_tax + subtotal;
+		double total = totalTax + subtotal;
 		System.out.println(total);
 		
 		//calculates money saved with coupon
-		double money_saved = couponConvert * total;
-		money_saved = Math.round(money_saved * 20) / 20.0; //This line rounds the money that the coupon saved to the nearest 0.05 cents
+		double moneySaved = couponConvert * total;
+		moneySaved = Math.round(moneySaved * 20) / 20.0; //This line rounds the money that the coupon saved to the nearest 0.05 cents
 		
 		//calculates total with coupon
-		double new_total = total - (money_saved);
+		double newTotal = total - (moneySaved);
 
 		
 
@@ -101,20 +102,20 @@ public class GroceryShopping {
     		System.out.printf("%43s \n", dateTimeFormatter.format(LocalDateTime.now()));
 		System.out.printf("%70s", "Item      |  Price  | Quant. | Total Price \r \n");
 		System.out.printf("%69s", "-------------------------------------------- \n");
-		System.out.printf("%31s   | %6s  | %4s   | %7s \n", item, money.format(cost), amount, money.format(total_amount));
-		System.out.printf("%31s   | %6s  | %4s   | %7s \n", item2, money.format(cost2), amount2, money.format(total_amount2));
+		System.out.printf("%31s   | %6s  | %4s   | %7s \n", item, money.format(cost), amount, money.format(totalAmount));
+		System.out.printf("%31s   | %6s  | %4s   | %7s \n", item2, money.format(cost2), amount2, money.format(totatAmount2));
 		System.out.printf("%69s", "-------------------------------------------- \n");
 		System.out.printf("%55s %10s \n", "Subtotal: $", money.format(subtotal));
-		System.out.printf("%55s %10s \n", "Tax: $", money.format(total_tax));
+		System.out.printf("%55s %10s \n", "Tax: $", money.format(totalTax));
 		System.out.printf("%55s %10s \n", "Total: $", money.format(total));
 		System.out.printf("%55s %10s \n", "Coupon: %", couponPercentage.format(coupon));
-		System.out.printf("%55s %5s %1s \n", "Discounted: $", "-", money.format(money_saved));
-		System.out.printf("%55s %10s \n \n", "New Total: $", money.format(new_total)); //If the user has a coupon, it's discounted
+		System.out.printf("%55s %5s %1s \n", "Discounted: $", "-", money.format(moneySaved));
+		System.out.printf("%55s %10s \n \n", "New Total: $", money.format(newTotal)); //If the user has a coupon, it's discounted
 		
-		//Rounds up the new_total
-		long new_total_rounded = Math.round(new_total);
-		System.out.printf("%50s \n", "This purchase was around $" + new_total_rounded);
-    		System.out.printf("%69s", "Thank you for shopping at Alexander's Grocery!"); //Gratitude message
+		//Rounds up the newTotal to nearest whole number
+		long newTotalRounded = Math.round(newTotal);
+		System.out.printf("%50s \n", "This purchase was around $" + newTotalRrounded);
+    		System.out.printf("%69s", "Thank you for shopping at Alexander's Grocery!");
 	}
 
 	private static void close() {

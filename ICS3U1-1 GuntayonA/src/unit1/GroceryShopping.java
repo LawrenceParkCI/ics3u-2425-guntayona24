@@ -1,7 +1,6 @@
 package unit1;
 
 import java.text.DecimalFormat;
-import java.text.NumberFormat;
 import java.util.Scanner;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -71,17 +70,17 @@ public class GroceryShopping {
 		
 		
 		//calculates first items total 
-		var totalAmount = (amount * cost);
+		double totalAmount = (amount * cost);
 		
 		
 		//calculates Second items total
-		var totalAmount2 = (amount2 * cost2);
+		double totalAmount2 = (amount2 * cost2);
 		
 		//calculates tax
-		var totalTax = (tax * (totalAmount + totalAmount2));
+		double totalTax = (tax * (totalAmount + totalAmount2));
 		
 		//subtotal of both items (no tax)
-		var subtotal = (totalAmount + totalAmount2);
+		double subtotal = (totalAmount + totalAmount2);
 		
 		//total of both items plus their tax
 		double total = totalTax + subtotal;

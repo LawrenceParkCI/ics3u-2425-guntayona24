@@ -18,10 +18,10 @@ public class PositiveNegative {
 		System.out.println("Type a int:");
 		int input = sc.nextInt();
 		if (input < 0) {
-			System.out.println("This is negative");
+			System.out.println("This is a negative number");
 		}
 		else {
-			System.out.println("This is a positive");
+			System.out.println("This is a positive number");
 			
 		int inputPos = Math.abs(input);
 		

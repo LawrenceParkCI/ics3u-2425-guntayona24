@@ -19,10 +19,10 @@ public class OddEven {
 		//Checks if int is odd, else it is even
 		int input = sc.nextInt();
 		if (input % 2 == 1) {
-			System.out.println("This is an odd number");
+			System.out.println("This is an odd numbe.r");
 		}
 		else {
-			System.out.println("This is an even number");
+			System.out.println("This is an even number.");
 		}
 
 	}

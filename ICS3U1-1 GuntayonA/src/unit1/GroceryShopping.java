@@ -98,11 +98,11 @@ public class GroceryShopping {
 		//Prints out a formatted receipt
 		System.out.printf("%70s", "This is your printed receipt \n \n \n \n \n");
    		System.out.printf("%58s","Alexander's Grocery \n \n");
-    		System.out.printf("%43s \n", dateTimeFormatter.format(LocalDateTime.now()));
+    	System.out.printf("%43s \n", dateTimeFormatter.format(LocalDateTime.now()));
 		System.out.printf("%70s", "Item      |  Price  | Quant. | Total Price \r \n");
 		System.out.printf("%69s", "-------------------------------------------- \n");
 		System.out.printf("%31s   | %6s  | %4s   | %7s \n", item, money.format(cost), amount, money.format(totalAmount));
-		System.out.printf("%31s   | %6s  | %4s   | %7s \n", item2, money.format(cost2), amount2, money.format(totatAmount2));
+		System.out.printf("%31s   | %6s  | %4s   | %7s \n", item2, money.format(cost2), amount2, money.format(totalAmount2));
 		System.out.printf("%69s", "-------------------------------------------- \n");
 		System.out.printf("%55s %10s \n", "Subtotal: $", money.format(subtotal));
 		System.out.printf("%55s %10s \n", "Tax: $", money.format(totalTax));
@@ -113,8 +113,8 @@ public class GroceryShopping {
 		
 		//Rounds up the newTotal to nearest whole number
 		long newTotalRounded = Math.round(newTotal);
-		System.out.printf("%50s \n", "This purchase was around $" + newTotalRrounded);
-    		System.out.printf("%69s", "Thank you for shopping at Alexander's Grocery!");
+		System.out.printf("%50s \n", "This purchase was around $" + newTotalRounded);
+    	System.out.printf("%69s", "Thank you for shopping at Alexander's Grocery!");
 	}
 
 	private static void close() {

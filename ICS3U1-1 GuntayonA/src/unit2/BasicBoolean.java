@@ -41,12 +41,12 @@ public class BasicBoolean {
 	    System.out.println("4: " + (firstNum <= thirdNum)); 
 
 	    /*Test out these boolean operators. Figure out the meaning
-	      * > means:
-	      * < means:
-	      * <= means:
-	      * >= means:
-	      * == means:
-	      * != means:
+	      * > means: greater than
+	      * < means: less than
+	      * <= means: less or equals to
+	      * >= means: greater or equals to
+	      * == means: equals to
+	      * != means: doesn't equal to
 	    */
 
 		}

@@ -29,7 +29,7 @@ public class IfChallenge2 {
 		int num3 = sc.nextInt();
 		
 		//Checks if numbers are in order
-		if (num1 < num2 & num2 < num3) {
+		if (num1 < num2 && num2 < num3) {
 			System.out.println("This is in order");
 		}
 		else {

@@ -54,11 +54,11 @@ class StringComparison {
 	
 	    //What values does compareTo() return? How can we 
 	    //interpret the value?
-	    	//It returns the lexicographic value of the first letter difference with the second
+	    	//It returns the lexicographic value of the string difference with the second
 	
 	    //what value does equals() and equalsIgnoreCase() return? 
 	    	//boolean
 	    //What is the difference between these two functions?
-	    	//equals is a boolean and check if the strings are the exact same. equalsIgnoreCase is the same, except the casing of the letter do not matter.
+	    	//equals is a boolean and check if the strings are the exact same. equalsIgnoreCase is the same, except the casing of the letters do not matter.
 	  }
 }

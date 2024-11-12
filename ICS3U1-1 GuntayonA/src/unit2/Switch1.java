@@ -9,6 +9,10 @@ Date: Nov 11 2024
 */
 
 public class Switch1 {
+  /**
+	* This is the entry point to the program.
+	* @param args unused
+	*/
   public static void main(String[] args) {
     Scanner in = new Scanner(System.in);
     

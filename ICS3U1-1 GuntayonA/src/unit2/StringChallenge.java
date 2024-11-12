@@ -3,7 +3,7 @@ package unit2;
 import java.util.Scanner;
 
 /**
- * Description: StringChallenge Program
+ * Description: StringChallenge Program: Asks the user for strings to check and manipulate them and their values
  * Date: Nov 11 2024
  * @author Alexander Guntayon
 */

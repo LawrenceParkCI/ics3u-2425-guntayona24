@@ -137,6 +137,10 @@ public class IfQuiz {
 		  System.out.println("You Failed badly,	" + studentName);
 		  System.out.println("Letter Grade: F-");
 	  }
+	  else if (finalScore < 2.5) {
+		  System.out.println("You need to study alot more, " + studentName);
+		  System.out.println("Letter Grade: F");
+	  }
 	  else if (finalScore < 3) {
 		  System.out.println("You need to study alot more, " + studentName);
 		  System.out.println("Letter Grade: D");

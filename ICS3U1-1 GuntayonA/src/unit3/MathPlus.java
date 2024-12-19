@@ -98,7 +98,6 @@ public class MathPlus {
 		int arraySum = 0;
 		for (int i = 0; i <= 2; i ++) {
 			arraySum += array[i];
-			System.out.println(i);
 		}
 		
 		return arraySum;
@@ -126,6 +125,11 @@ public class MathPlus {
 	
 	public static int min(int[] array) {
 		int arrayIndex = 0;
+		int currentNum;
+		int smallestNum;
+		for (int i = 0; i <= 2; i++) {
+			currentNum = array[i];
+		}
 		if ((array[0] < array[1]) && (array[0] < array[2])) {
 			arrayIndex = 0;
 		}
@@ -199,8 +203,9 @@ public class MathPlus {
 	
 	public static int bigDifference(int[] array) {
 		for (int i = 0; i < 2; i ++) {
-			if (array[i])
+			if (array[i] < array[i]);
 		}
+		return 0;
 	}
 }
 

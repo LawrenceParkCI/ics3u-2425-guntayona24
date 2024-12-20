@@ -17,11 +17,18 @@ public class MathPlus {
 		//System.out.println(distance(10, 8, 4, 7));
 		//System.out.println(hypotenuse(8, 9));
 		
-		int num0 = sc.nextInt();
-		int num1 = sc.nextInt();
-		int num2 = sc.nextInt();
-		int [] intArray = {num0, num1, num2};
-		System.out.println(sum(intArray));
+		//int num0 = sc.nextInt();
+		//int num1 = sc.nextInt();
+		//int num2 = sc.nextInt();
+		//int [] intArray = {num0, num1, num2};
+		//System.out.println(maxInt(intArray));
+		
+		double num0 = sc.nextDouble();
+		double num1 = sc.nextDouble();
+		double num2 = sc.nextDouble();
+		double [] intArray = {num0, num1, num2};
+		System.out.println(maxDouble(intArray));
+		
 	}
 	
 	  /**
@@ -63,7 +70,7 @@ public class MathPlus {
 		do {
 			divideNumber ++;
 			factor = factoredNum/divideNumber;
-			if (factoredNum % divideNumber == 1) {
+			if (factoredNum % divideNumber == 0) {
 				return factor;
 			}
 		} while (factor > 0);
@@ -123,23 +130,15 @@ public class MathPlus {
 	  @return the index of the smallest integer
 	  */
 	
-	public static int min(int[] array) {
-		int arrayIndex = 0;
-		int currentNum;
-		int smallestNum;
-		for (int i = 0; i <= 2; i++) {
-			currentNum = array[i];
+	public static int minInt(int[] array) {
+		int minValue = 0;
+		int indexValue = 0;
+		for (int i = 0; i < array.length; i++) {  
+			if(array[i] > minValue)  
+				minValue = array[i];
+				indexValue = (int) i;
 		}
-		if ((array[0] < array[1]) && (array[0] < array[2])) {
-			arrayIndex = 0;
-		}
-		else if ((array[1] < array[0]) && (array[1] < array[2])) {
-			arrayIndex = 1;
-		}
-		else {
-			arrayIndex = 2;
-		}
-		return arrayIndex;
+		return indexValue;
 	}
 	
 	
@@ -149,18 +148,15 @@ public class MathPlus {
 	  @return the index of the smallest float
 	  */
 	
-	public static double min(double[] array) {
-		int arrayIndex = 0;
-		if ((array[0] < array[1]) && (array[0] < array[2])) {
-			arrayIndex = 0;
+	public static double minDouble(double[] array) {
+		double minValue = 0;
+		int indexValue = 0;
+		for (int i = 0; i < array.length; i++) {  
+			if(array[i] > minValue)  
+				minValue = array[i];
+				indexValue = (int) i;
 		}
-		else if ((array[1] < array[0]) && (array[1] < array[2])) {
-			arrayIndex = 1;
-		}
-		else {
-			arrayIndex = 2;
-		}
-		return arrayIndex;
+		return indexValue;
 	}
 	
 	  /**
@@ -168,18 +164,15 @@ public class MathPlus {
 	  @param array -> is the array used
 	  @return the index of the smallest int
 	  */
-	public static int max(int[] array) {
-		int arrayIndex = 0;
-		if ((array[0] > array[1]) && (array[0] > array[2])) {
-			arrayIndex = 0;
+	public static int maxInt(int[] array) {
+		int maxValue = 0;
+		int indexValue = 0;
+		for (int i = 0; i < array.length; i++) {  
+			if(array[i] < maxValue)  
+				maxValue = array[i];
+				indexValue = (int) i;
 		}
-		else if ((array[1] > array[0]) && (array[1] > array[2])) {
-			arrayIndex = 1;
-		}
-		else {
-			arrayIndex = 2;
-		}
-		return arrayIndex;
+		return indexValue;
 	}
 	
 	  /**
@@ -187,25 +180,68 @@ public class MathPlus {
 	  @param array -> is the array used
 	  @return the index of the largest float
 	  */
-	public static double max(double[] array) {
-		int arrayIndex = 0;
-		if ((array[0] > array[1]) && (array[0] > array[2])) {
-			arrayIndex = 0;
+	public static double maxDouble(double[] array) {
+		double maxValue = 0;
+		int indexValue = 0;
+		for (int i = 0; i < array.length; i++) {  
+			if(array[i] < maxValue)  
+				maxValue = array[i];
+				indexValue = (int) i;
 		}
-		else if ((array[1] > array[0]) && (array[1] > array[2])) {
-			arrayIndex = 1;
-		}
-		else {
-			arrayIndex = 2;
-		}
-		return arrayIndex;
+		return indexValue;
 	}
 	
-	public static int bigDifference(int[] array) {
-		for (int i = 0; i < 2; i ++) {
-			if (array[i] < array[i]);
+	  /**
+	  (Description: Finds the largest and smallest int values and finds the difference
+	  @param array -> is the array used
+	  @return the difference of the numbers
+	  */
+	public static int bigDifference(int[] array) {	
+		int minValue = array[0];  
+		int maxValue = array[0];  
+		
+		// Checks for the smallest int
+		for (int i = 0; i < array.length; i++) {  
+			if(array[i] < minValue)  
+				minValue = array[i];  
 		}
-		return 0;
+		
+		// Checks for biggest int
+		for (int i = 0; i < array.length; i++) {  
+			if(array[i] > maxValue)  
+				maxValue = array[i];  
+		}
+		
+		// Grabs maxValue and substracts minValue
+		int difference = maxValue - minValue;
+		return difference;
 	}
+	
+	  /**
+	  (Description: Finds the largest and smallest int values and finds the difference
+	  @param array -> is the array used
+	  @return the difference of the numbers
+	  */
+	public static double bigDifference(double[] array) {	
+		double minValue = array[0];  
+		double maxValue = array[0];  
+		
+		// Checks for the smallest double
+		for (int i = 0; i < array.length; i++) {  
+			if(array[i] < minValue)  
+				minValue = array[i];  
+		}
+		
+		// Checks for biggest double
+		for (int i = 0; i < array.length; i++) {  
+			if(array[i] > maxValue)  
+				maxValue = array[i];  
+		}
+		
+		// Grabs maxValue and substracts minValue
+		double difference = maxValue - minValue;
+		return difference;
+	}
+
 }
 

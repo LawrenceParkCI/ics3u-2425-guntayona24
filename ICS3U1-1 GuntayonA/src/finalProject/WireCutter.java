@@ -12,22 +12,34 @@ import java.util.Scanner;
 import javax.imageio.ImageIO;
 
 public class WireCutter {
-
+	/**
+	 * Description:
+	 * Date: Jan 7 2024
+	 * @author Alexander Guntayon
+	*/
 	public static void main(String[] args) {
 		
 		
 		 
 		 
 		 
-		int badWire = wires((int)(Math.random() * 10) + 1);
-		// System.out.println(badWire);
-
+		int badWire = wires((int)(Math.random() * 10) + 1); // Calls the wires function, and gives the randWire parameter a random number to assign the bad wire
+		System.out.println(badWire);
 		Scanner sc = new Scanner(System.in);
 
 
 	}
 
+	
+	// ADD DESCRIPTION
 	public static int wires(int randWire) {
+		
+		int[] wiresCutList = new int[9]; //COME BACK HERE
+		
+		
+		
+		
+		System.out.println(randWire);
 		Console c = new Console(50, 1000); // Wires console
 		Console c2 = new Console(2, 10); // Input/output console
 		
@@ -39,7 +51,8 @@ public class WireCutter {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		int cut; // Stores the int of what wire was cut
+		
+		int cut = 0; // Stores the int of what wire was cut
 		int wireCutAmount = 0; // The number of good wires cut
 		
 		// Wire Graphics
@@ -71,13 +84,24 @@ public class WireCutter {
 		c.setFont(new Font("MonoSpaced", Font.BOLD, 30));
 		c.drawString("1", 1460, 120);
 		
+		// Wire Choices
+		int wirePlayerChoice1 = 0;
+		int wirePlayerChoice2 = 0;
+		int wirePlayerChoice3 = 0;
+		int wirePlayerChoice4 = 0;
+		int wirePlayerChoice5 = 0;
+		int wirePlayerChoice6 = 0;
+		int wirePlayerChoice7 = 0;
+		int wirePlayerChoice8 = 0;
+		int wirePlayerChoice9 = 0;
 		
+		int wiresCutCurrently = -1;
 		
 		do {
 			c.setColor(new Color(0, 0, 0));
 			
 			c.setFont(new Font("MonoSpaced", Font.BOLD, 40));
-			c.drawString("Your Score: " + score(wireCutAmount), 70, 100);
+			c.drawString("Your Score: " + score(wireCutAmount), 70, 100); // Presents score on the top left of screen
 			
 			c.setColor(new Color(255, 255, 255));
 			
@@ -117,16 +141,36 @@ public class WireCutter {
 				c2.print("Please try again");
 			} 
 			
-			if (cut != randWire) // Checks if user cuts the correct wire to add points to score
-				wireCutAmount += 1;
-				System.out.println((score(wireCutAmount)));
-				c.setColor(new Color(150, 220, 255));
-				c.fillRect(35, 32, 400, 140);
+			if (cut != randWire && cut <= 10 && cut >= 1) { // Checks if user cuts the correct wire to add points to score
+				int wireValueCheck;
+				for (int i = 0; i <= wiresCutList.length; i ++) {
+					wireValueCheck = wiresCutList[i];
+					if (wireValueCheck == 0) {
+						System.out.println("I reached 0");
+						wireCutAmount += 1;
+						System.out.println((score(wireCutAmount))); // Gets the value of wireCutAmount and uses it as an index to get a score from the score list
+						c.setColor(new Color(150, 220, 255));
+						c.fillRect(35, 32, 400, 140);
+						break;
+					}
+				}
+					
+				}
+				wiresCutCurrently += 1;
+				wiresCutList[wiresCutCurrently] = cut;
+				System.out.println("you cut this wire " + wiresCutList[wiresCutCurrently]); // TODO make a loop to check
 				
-				
-			c2.clear(); // Clears the input/output console, not the graphics console
+			if (wiresCutList[8] != 0) {
+				System.out.println("You reached the end of the list");
+				c2.print("You win");
+				}	
+			else {
+				c2.clear(); // Clears the input/output console, not the graphics console
+			}
 			
-		} while (cut != randWire); 
+			
+		} while (cut != randWire); // Loops while the bad wire wasn't cut, or if all the good wires weren't cut
+		
 		
 		if (cut == randWire) { // When user cuts the wrong wire
 			c2.print("game over");
@@ -145,7 +189,8 @@ public class WireCutter {
 	
 	public static int score(int wireCutAmount) {
 		// MAKE AN ARRAY FOR THIS TOIDO
-		int playerScore = wireCutAmount * wireCutAmount;
-		return playerScore;
+		int [] playerScore = {0, 5, 10, 20, 35, 55, 80, 110, 150, 200}; // Array with specific scores for each wire cut
+		int playerScoreChosen = playerScore[wireCutAmount];
+		return playerScoreChosen;
 	}
 }

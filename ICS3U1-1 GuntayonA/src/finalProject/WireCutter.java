@@ -19,13 +19,25 @@ public class WireCutter {
 	*/
 	
 	static Console c = new Console(50, 1000); // Main console that displays wires, and restartScreen
-	static Console c2 = new Console(2, 10); // Input/output console
+	static Console c2 = new Console(6, 50); // Input/output console
+	
+	// Images
+	static BufferedImage explosionJpg = null;
+	static BufferedImage confettiPng = null;
 	
 	public static void main(String[] args) {
-		
-		int badWire = wires((int)(Math.random() * 10) + 1); // Calls the wires function, and gives the randWire parameter a random number to assign the bad wire
-		System.out.println(badWire);
-
+		// Images
+		 try {
+			explosionJpg = ImageIO.read(new File ("src/finalProjectPictures/Explosion.jpg")); // TODO Change this image
+			confettiPng = ImageIO.read(new File ("src/finalProjectPictures/ConfettiWIn.png"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		 
+		 do {
+			 int badWire = wires((int)(Math.random() * 10) + 1); // Calls the wires function, and gives the randWire parameter a random number to assign the bad wire
+			 System.out.println(badWire);
+		 } while (restartScreen(false) == true); // Parameter of restartScreen doesn't matter, it has to be filled to get the return value to see if user restarts game
 
 	}
 
@@ -33,7 +45,7 @@ public class WireCutter {
 	// ADD DESCRIPTION
 	public static int wires(int randWire) {
 		
-		int[] wiresCutList = new int[9]; //COME BACK HERE
+		int[] wiresCutList = new int[9]; // A new list that will store the wires that were cut by the user
 		
 		
 		
@@ -93,7 +105,9 @@ public class WireCutter {
 			
 			c.setColor(new Color(255, 255, 255));
 			
+			c2.print("Type a wire number to cut it: ");
 			cut = c2.readInt();
+			
 			switch(cut) {
 			case 1:
 				c.fillRect(750, 100, 350, 25);
@@ -126,10 +140,10 @@ public class WireCutter {
 				c.fillRect(750, 775, 350, 25);
 				break;
 			default:
-				c2.print("Please try again");
+				c2.print("You cut something a wire that was out of bounds! \nThe bomb exploded!\n\n");
 			} 
 			
-			if (cut != randWire && cut <= 10 && cut >= 1) { // Checks if user cuts the correct wire to add points to score
+			if (cut != randWire && cut <= 10 && cut >= 1) { // Checks if user cuts the correct wire to add points to the score
 				int wireValueCheck;
 				for (int i = 0; i <= wiresCutList.length; i ++) {
 					wireValueCheck = wiresCutList[i];
@@ -154,6 +168,9 @@ public class WireCutter {
 				winGameCheck = true; // User wins the game
 				restartScreen(winGameCheck);
 				}	
+			else if (!(cut <= 10 && cut >= 1)) { // If user cuts a wire that's out of bounds (ex: 15), the bomb automatically explodes
+				cut = randWire;
+			}
 			else {
 				c2.clear(); // Clears the input/output console, not the graphics console
 			}
@@ -165,6 +182,25 @@ public class WireCutter {
 		if (cut == randWire) { // When user cuts the wrong wire
 			c2.print("game over");
 			winGameCheck = false; // User loses the game
+			c.drawImage (explosionJpg, -200, -300, 2500, 1500, null);
+			try {
+				  Thread.sleep(1000);
+				} catch (InterruptedException e) {
+				  Thread.currentThread().interrupt();
+				}
+			
+			c.setColor(new Color(000, 200, 213));
+			c.fillRect(600, 250, 600, 340);
+			
+			c.setFont(new Font("MonoSpaced", Font.BOLD, 50));
+			c.setColor(new Color(0, 0, 0));
+			c.drawString("Total Points: " + score(wireCutAmount), 655, 420);
+			
+			try {
+				  Thread.sleep(3000);
+				} catch (InterruptedException e) {
+				  Thread.currentThread().interrupt();
+				}
 			restartScreen(winGameCheck);
 		}	
 		
@@ -173,22 +209,14 @@ public class WireCutter {
 		return badWire;
 	}
 	
-	public static int restartScreen(boolean winCheck) {
-		// Images
-		 BufferedImage explosionJpg = null;
-		 BufferedImage confettiPng = null;
-		
-		 try {
-			explosionJpg = ImageIO.read(new File ("src/finalProjectPictures/Explosion.jpg"));
-			confettiPng = ImageIO.read(new File ("src/finalProjectPictures/ConfettiWIn.png"));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		 
+	public static boolean restartScreen(boolean winCheck) {
 		c.clear();
+		c2.clear();
+		
+		boolean restartMainMethod = false;
 		
 		c.setColor(new Color(150, 220, 255));
-		c.setFont(new Font("MonoSpaced", Font.BOLD, 30));
+		c.setFont(new Font("MonoSpaced", Font.BOLD, 40));
 		if (winCheck == true) {
 			c.fillRect(35, 32, 400, 140);
 			c.drawImage (confettiPng, -200, -300, 2500, 1500, null);
@@ -196,12 +224,25 @@ public class WireCutter {
 		else {
 			System.out.println("lose");
 			c.drawImage (explosionJpg, -200, -300, 2500, 1500, null);
-			c.setColor(new Color(0, 0, 0));
-			c.drawString("The bomb exploded!", 700, 320);
-			c.drawString("Restart? {Yes or No)", 700, 420);
 			c.fillRect(600, 250, 600, 340);
+			c.drawString("The bomb exploded!", 685, 360);
+			c.setColor(new Color(0, 0, 0));
+			c.drawString("The bomb exploded!", 685, 360);
+			c.drawString("Restart? (Yes or No)", 675, 460);
+			
+			c2.print("Type \"Yes\" or \"No\": ");
+			
+			String restartCheck = c2.readString();
+			
+			if (restartCheck.equalsIgnoreCase("yes")){
+				System.out.println("ight");
+				restartMainMethod = true;
+				c.clear();
+				c2.clear();
+			}
 		}
-		return 0;1
+		
+		return restartMainMethod;
 		
 	}
 	

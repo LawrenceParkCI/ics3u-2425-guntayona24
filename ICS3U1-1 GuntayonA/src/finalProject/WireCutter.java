@@ -93,6 +93,7 @@ public class WireCutter {
 		int wiresCutCurrently = -1;
 		winGameCheck = false;
 		
+		// Background in game
 		c.setColor(new Color(239, 230, 210));
 		c.fillRect(0, 0, 10000, 10000);
 
@@ -346,7 +347,7 @@ public class WireCutter {
 					System.exit(0);
 				}
 				
-				else {
+				else { // When user enters invalid string
 					c2.clear();
 					loopCheck = true;
 					c2.println("Please input a valid answer");
